@@ -3,7 +3,7 @@
 #include <string.h>
 
 /*
-Lista 10
+Lista 9
 Autor: Manuella Bottega
 Data: 12/05/2025
 */
