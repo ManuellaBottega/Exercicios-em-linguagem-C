@@ -4,109 +4,200 @@
 /*
 Lista 10
 Autor: Manuella Bottega
-Data: 19/5/25
+Data: 04/06/25
 */
 
 int main()
 {
+    //Exercicio 1
 
-    //Faça um programa que leia um número inteiro positivo N e imprima todos os números naturais de 0 até N em ordem crescente.
+    int matriz [3][3], i, j, menor;
 
-    int numero, contador = 1;
-
-    printf("digite um numero inteiro positivo: ");
-    scanf("%d", &numero);
-
-    for (; contador <= numero; contador ++) {
-        printf("%d\n", contador);
-    }
-
-    //Faça um programa que leia um número inteiro positivo N e imprima todos os números naturais de 0 até N em ordem decrescente.
-
-    int numero;
-
-    printf("digite um numero inteiro positivo: ");
-    scanf("%d", &numero);
-
-    for (; numero > 0; numero --) {
-        printf("%d\n", numero);
-    }
-
-    //Faça um programa que leia um número inteiro N e depois imprima os N primeiros números naturais ímpares.
-
-    int numero, impares;
-
-    printf("digite um numero inteiro positivo: ");
-    scanf("%d", &numero);
-
-    for (impares = 0; impares < 2*numero; impares ++) {
-        impares += 1;
-        printf("%d\n", impares);
-    }
-
-    //Faça um programa que determine e mostre os cinco primeiros múltiplos de 3 considerando números maiores que 0.
-
-    int numero = 3, multiplos;
-
-    for (multiplos = 1; multiplos <= numero*5; multiplos ++) {
-        if (multiplos % numero == 0) {
-            printf("%d\n", multiplos);
+    printf("digite 9 numeros inteiros para uma matriz 3x3: \n");
+    for (i = 0; i < 3; i ++) {
+        for (j = 0; j < 3; j ++) {
+            printf("numero [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
         }
     }
 
-    //Faça um programa que determine e mostre os cinco primeiros múltiplos de 3 considerando números maiores que 0.
+    menor = matriz[0][0];
 
-    int numero, soma = 0;
-
-    for (numero = 0; numero < 101; numero ++) {
-        if (numero % 2 == 0) {
-            soma += numero;
-        }
-    }
-    printf("%d", soma);
-
-    //Faça um programa que mostre uma contagem regressiva na tela, iniciando em 10 e terminando em 0. Mostre uma mensagem “FIM!” após a contagem.
-
-    int contagem;
-
-    for (contagem = 10; contagem >= 0; contagem --) {
-        printf("%d\n", contagem);
-    }
-
-    printf("FIM! ");
-
-    //Escreva um programa que leia um número inteiro positivo N e em seguida imprima N linhas do chamado triângulo de Floyd:
-
-    int numero, horizontal, vertical, contador=1;
-
-    printf("digite um numero inteiro positivo: ");
-    scanf("%d", &numero);
-
-    for (horizontal = 1; horizontal <= numero; horizontal ++) {
-        for (vertical = 1; vertical <= horizontal; vertical ++){
-            printf("%d ", contador);
-            contador ++;
-        }
-        printf("\n");
-    }
-
-    //Faça um programa que receba um número inteiro maior do que 1 e verifique se o número fornecido é primo ou não.
-
-    int numero, divisor, primo = 1;
-
-    printf("digite um numero inteiro maior que 1: ");
-    scanf("%d", &numero);
-
-    for (divisor = 2; divisor < numero; divisor ++) {
-        if (numero % divisor == 0) {
-            primo = 0;
-            break;
+    for (i = 0; i < 3; i ++) {
+        for (j = 0; j < 3; j ++) {
+            if (matriz[i][j] < menor) {
+                menor = matriz[i][j];
+            }
         }
     }
 
-    if (primo)
-        printf("%d e primo\n", numero);
-    else
-        printf("%d nao e primo\n", numero);
-   return 0;
+    printf("O menor valor na matriz e: %d\n", menor);
+
+    //Exercicio 2
+
+    int matriz [4][4], i, j, maior, mi, mj;
+
+    printf("digite 16 numeros inteiros para uma matriz 4x4: \n");
+    for (i = 0; i < 4; i ++) {
+        for (j = 0; j < 4; j ++) {
+            printf("numero [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    maior = matriz [0][0];
+    mj = 0;
+    mi = 0;
+
+    for (i = 0; i < 4; i ++) {
+        for (j = 0; j < 4; j ++) {
+            if (matriz[i][j] > maior) {
+                    maior = matriz[i][j];
+                    mi = i;
+                    mj = j;
+            }
+        }
+    }
+        printf("o maior valor: %d, esta na posicao [%d][%d]\n", maior, mi, mj);
+
+    //Exercicio 3
+
+    int matriz [5][5], i, j;
+
+    for (i = 0; i < 5; i ++){
+        for (j = 0; j < 5; j ++) {
+            if (i == j) {
+                matriz [i][j] = 1;
+            }
+            else {
+                matriz [i][j] = 0;
+            }
+        }
+    }
+
+    printf("matriz obtida: \n");
+
+    for (i = 0; i < 5; i ++){
+        for (j = 0; j < 5; j ++) {
+                printf("%d", matriz[i][j]);
+        }
+            printf("\n");
+    }
+
+    //Exercicio 4
+
+    int matriz [4][4], i, j, maior10 = 0;
+
+    printf("digite 16 numeros inteiros para uma matriz 4x4: \n");
+    for (i = 0; i < 4; i ++) {
+        for (j = 0; j < 4; j ++) {
+            printf("numero [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    for (i = 0; i < 4; i ++) {
+        for (j = 0; j < 4; j ++) {
+            if (matriz[i][j] > 10) {
+                    maior10 ++;
+            }
+        }
+    }
+
+    printf("quantidade de numeros maiores que 10 na matriz: %d ", maior10);
+
+    //Exercicio 5
+
+    int matriz [4][4], i, j, negativos = 0;
+
+    printf("digite 16 numeros inteiros para uma matriz 4x4: \n");
+    for (i = 0; i < 4; i ++) {
+        for (j = 0; j < 4; j ++) {
+            printf("numero [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    for (i = 0; i < 4; i ++) {
+        for (j = 0; j < 4; j ++) {
+            if (matriz[i][j] < 0) {
+                    negativos ++;
+            }
+        }
+    }
+
+    printf("quantidade de numeros negativos na matriz: %d ", negativos);
+
+    //Exercicio 6
+
+    int matriz [3][3], i, j, soma = 0;
+
+    printf("digite 9 numeros inteiros para uma matriz 3x3: \n");
+    for (i = 0; i < 3; i ++) {
+        for (j = 0; j < 3; j ++) {
+            printf("numero [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    for (i = 0; i < 3; i ++) {
+        for (j = 0; j < 3; j ++) {
+            if (i == j) {
+                    soma += matriz [i][j];
+            }
+        }
+    }
+
+    printf("a soma dos valores da diagonal principal da matriz e: %d ", soma);
+
+    //Exercicio 7
+
+    int matriz [3][3], i, j, soma = 0;
+
+    printf("digite 9 numeros inteiros para uma matriz 3x3: \n");
+    for (i = 0; i < 3; i ++) {
+        for (j = 0; j < 3; j ++) {
+            printf("numero [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    for (i = 0; i < 3; i ++) {
+        for (j = 0; j < 3; j ++) {
+            if (j == 2 - i) {
+                    soma += matriz [i][j];
+            }
+        }
+    }
+
+    printf("a soma dos valores da diagonal secundaria da matriz e: %d ", soma);
+
+    //Exercicio 8
+
+    int matriz [10][10], i, j;
+
+    for (i = 0; i < 10; i ++){
+        for (j = 0; j < 10; j ++) {
+            if (i == j) {
+                matriz [i][j] = (3*i)*(3*i) - 1;
+            }
+            if (i < j) {
+                matriz [i][j] = 2*i + 7*j - 2;
+            }
+            if (i > j){
+                matriz [i][j]= (4*i)*(4*i)*(4*i) + (5*j)*(5*j) + 1;
+            }
+        }
+    }
+
+    printf("matriz obtida: \n");
+
+    for (i = 0; i < 10; i ++){
+        for (j = 0; j < 10; j ++) {
+                printf("%d  ", matriz[i][j]);
+        }
+            printf("\n");
+    }
+
+    return 0;
 }
